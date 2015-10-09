@@ -16,6 +16,29 @@ cron(45 7 ? * MON-FRI *)
 The lambda function will start all the instances that have a tag `LaunchGroup` with the value being the name of your lambda function, in this case for instance
 `OfficeHoursLauncher`.
 
+### IAM Roles
+
+Make sure your lambda function is able to describe and start instances.
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "MyStatementId",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:DescribeInstances",
+                "ec2:StartInstances"
+            ],
+            "Resource": [
+                "*"
+            ]
+        }
+    ]
+}
+```
+
 ## Author
 
 - Sam Verschueren [<sam.verschueren@gmail.com>]
