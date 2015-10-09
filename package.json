@@ -8,7 +8,7 @@
     "email": "sam.verschueren@gmail.com"
   },
   "scripts": {
-    "test": "xo && ava",
+    "test": "xo",
     "build": "gulp build"
   },
   "keywords": [
