@@ -1,6 +1,6 @@
 {
   "name": "lambda-start-server",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "AWS Lambda function that starts a server.",
   "license": "MIT",
   "author": {
