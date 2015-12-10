@@ -4,7 +4,7 @@
 
 ## Usage
 
-Download the [zip](https://github.com/SamVerschueren/aws-lambda-stop-server/releases) file and deploy it as a lambda function.
+Download the [zip](https://github.com/SamVerschueren/aws-lambda-start-server/releases) file and deploy it as a lambda function.
 
 After you deployed the lambda function, you navigate to `Event sources` and choose for the `Scheduled Event`. After naming your event, you can provide
 the following schedule expression.
