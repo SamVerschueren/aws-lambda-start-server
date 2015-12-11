@@ -1,9 +1,17 @@
-import AWS from 'aws-sdk';
-import sinon from 'sinon';
+'use strict';
 
-export const ec2 = {
-	describeInstances: () => {},
-	startInstances: () => {}
+var AWS = require('aws-sdk');
+var sinon = require('sinon');
+
+module.exports = {
+	ec2: {
+		describeInstances: function () {
+			// do nothing
+		},
+		startInstances: function () {
+			// do nothing
+		}
+	}
 };
 
-sinon.stub(AWS, 'EC2').returns(ec2);
+sinon.stub(AWS, 'EC2').returns(module.exports.ec2);
