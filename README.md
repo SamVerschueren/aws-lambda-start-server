@@ -48,11 +48,7 @@ Make sure your lambda function is able to describe and start instances.
 
 ## Related
 
-- [aws-lambda-stop-server](https://github.com/SamVerschueren/aws-lambda-stop-server)
-
-## Author
-
-- Sam Verschueren [<sam.verschueren@gmail.com>]
+- [aws-lambda-stop-server](https://github.com/SamVerschueren/aws-lambda-stop-server) - The same function but for stopping the server.
 
 ## License
 
