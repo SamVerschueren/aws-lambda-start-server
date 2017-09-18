@@ -2,18 +2,6 @@ import * as pify from 'aws-lambda-pify';
 import * as sinon from 'sinon';
 import { ec2 } from './mock/ec2';
 
-const createCronRequest = (ruleName: string) => {
-	return {
-		'detail-type': 'Scheduled Event',
-		source: 'aws.events',
-		time: new Date(),
-		id: 'cdc73f9d-aea9-11e3-9d5a-835b769c0d9c',
-		resources: [
-			`arn:aws:events:eu-west-1:123456789012:rule/${ruleName}`
-		]
-	};
-};
-
 export function bootstrap(test: any) {
 	const sandbox = sinon.sandbox.create();
 
@@ -33,6 +21,7 @@ export function bootstrap(test: any) {
 				}
 			]
 		});
+
 		describeInstances.withArgs({ Filters: [{ Name: 'tag:LaunchGroup', Values: ['Unicorn'] }] }).yields(undefined, {
 			Reservations: [
 				{
@@ -78,6 +67,27 @@ export function bootstrap(test: any) {
 			]
 		});
 
+		describeInstances.withArgs({ Filters: [{ Name: 'tag:LaunchGroup', Values: ['Rainbow'] }] }).yields(undefined, {
+			Reservations: [
+				{
+					Instances: [
+						{
+							InstanceId: '9',
+							State: {
+								Code: 80
+							}
+						},
+						{
+							InstanceId: '14',
+							State: {
+								Code: 80
+							}
+						}
+					]
+				}
+			]
+		});
+
 		describeInstances.yields(undefined, {
 			Reservations: [
 				{
@@ -95,9 +105,9 @@ export function bootstrap(test: any) {
 	});
 
 	test.beforeEach(t => {
-		t.context.fn = (name: string) => {
+		t.context.fn = (request: any) => {
 			const index = require('../..');
-			return pify(index.handler)(createCronRequest(name));
+			return pify(index.handler)(request);
 		};
 	});
 }

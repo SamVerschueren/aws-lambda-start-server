@@ -1,7 +1,7 @@
 {
   "name": "aws-lambda-start-server",
   "version": "0.1.2",
-  "description": "AWS Lambda function that starts a server",
+  "description": "Easily start EC2 servers automatically at a certain time",
   "author": {
     "name": "Sam Verschueren",
     "email": "sam.verschueren@gmail.com",
@@ -40,7 +40,6 @@
     "ava": "*",
     "aws-lambda-pify": "^3.0.0",
     "aws-sdk": "^2.117.0",
-    "aws-sdk-mock": "^1.7.0",
     "coveralls": "^2.13.1",
     "cpy-cli": "^1.0.1",
     "del-cli": "^0.2.1",

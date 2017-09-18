@@ -21,6 +21,13 @@ function routes() {
 // Create app and bootstrap middleware
 const app = bragg();
 app.use(cron());
+app.use(ctx => {
+	if (!ctx.path && typeof ctx.req === 'string') {
+		// If the request is purly a string, the function was invoked manually and the data should be used as group name
+		ctx.path = `cron:${ctx.req}`;
+		ctx.method = 'POST';
+	}
+});
 app.use(routes());
 
 // Listen for requests
