@@ -7,9 +7,13 @@ const ec2 = new AWS.EC2();
 const startInstances = pify(ec2.startInstances.bind(ec2));
 
 export async function start(ctx, instanceIds: number[]) {
-	const params = {
-		InstanceIds: instanceIds
-	};
+	console.log(`Starting ${instanceIds.length} servers with group \`${ctx.request.params.group}\``);
 
-	return await startInstances(params);
+	if (instanceIds.length > 0) {
+		const params = {
+			InstanceIds: instanceIds
+		};
+
+		return await startInstances(params);
+	}
 }
