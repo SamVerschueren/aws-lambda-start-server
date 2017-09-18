@@ -2,6 +2,7 @@
   "name": "aws-lambda-start-server",
   "version": "0.1.2",
   "description": "Easily start EC2 servers automatically at a certain time",
+  "license": "MIT",
   "author": {
     "name": "Sam Verschueren",
     "email": "sam.verschueren@gmail.com",
